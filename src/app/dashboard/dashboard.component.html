@@ -1,0 +1,10 @@
+<nav>
+    <ul class="nav nav-pills nav-stacked">
+        <li *ngFor="let challenge of challenges"
+            [ngClass]="{'disabled': challenge.disabled}"
+            class="challenge"
+            role="navigation">
+            <a routerLink="{{ challenge.url }}" routerLinkActive="active">{{challenge.name}}</a>
+        </li>
+    </ul>
+</nav>

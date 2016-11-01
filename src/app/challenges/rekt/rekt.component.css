@@ -1,0 +1,13 @@
+.tile {
+    font-size: 24px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    display: table-cell;
+}
+
+.form-horizontal label {
+    line-height: 34px;
+}

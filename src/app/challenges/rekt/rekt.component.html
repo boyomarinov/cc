@@ -1,0 +1,51 @@
+<div>
+    <div class="col-md-5">
+        <div *ngFor="let row of rektMatrix">
+            <span class="tile" *ngFor="let col of row">{{ col }}</span>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <form class="row">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="word" class="col-sm-2">Word</label>
+                    <div class="col-sm-10">
+                        <input id="word"
+                               name="word"
+                               class="form-control"
+                               [(ngModel)]="word"
+                               (ngModelChange)="updateRekt()"
+                               placeholder="word" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="width" class="col-sm-2">Width</label>
+                    <div class="col-sm-10">
+                        <input id="width"
+                               name="width"
+                               class="form-control"
+                               [(ngModel)]="width"
+                               (ngModelChange)="updateRekt()"
+                               placeholder="width" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="height" class="col-sm-2">Height</label>
+                    <div class="col-sm-10">
+                        <input id="height"
+                               name="height"
+                               class="form-control"
+                               [(ngModel)]="height"
+                               (ngModelChange)="updateRekt()"
+                               placeholder="height" />
+                    </div>
+                </div>
+            </form>
+        </form>
+        <div class="row">
+            <div>
+                 <pre><code class="javascript">{{ sourceCode}}</code></pre>
+            </div>
+        </div>
+    </div>
+</div>

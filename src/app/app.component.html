@@ -1,3 +1,17 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/" routerLinkActive="active">Code challenges</a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-md-1">
+                <dashboard></dashboard>
+            </div>
+            <div class="col-md-11 content-container">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
