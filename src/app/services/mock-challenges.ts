@@ -8,7 +8,7 @@ export const CHALLENGES: Challenge[] = [
         disabled: false
     }, {
         id: 21,
-        name: 'New?',
+        name: 'Next',
         url: '',
         disabled: true
     }

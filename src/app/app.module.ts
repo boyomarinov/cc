@@ -9,8 +9,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { RektComponent } from './challenges/rekt/rekt.component';
 import { ChallengeService } from './services/challenge.service';
+import { AnimationService } from './animation/animation.service';
+import { AnimationDirective } from './animation/animation.directive';
 
 const routes: Routes = [
+    { path: '', redirectTo: '/rekt', pathMatch: 'full' },
     { path: '', component: HomeComponent },
     { path: 'rekt', component: RektComponent }
 ];
@@ -20,7 +23,8 @@ const routes: Routes = [
     AppComponent,
     DashboardComponent,
     HomeComponent,
-    RektComponent
+    RektComponent,
+    AnimationDirective
   ],
   imports: [
     BrowserModule,
@@ -28,8 +32,11 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [ RouterModule ],
-  providers: [ChallengeService],
+  exports: [RouterModule],
+  providers: [
+    ChallengeService,
+    AnimationService
+  ],
   bootstrap: [AppComponent]
 })
 
