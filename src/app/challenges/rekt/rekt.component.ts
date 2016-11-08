@@ -27,7 +27,12 @@ export class RektComponent implements OnInit {
     }
 
     getRekt(input: string, width: number, height: number): void {
-        var reversed = input + input.split('').reverse().join('').substring(1, input.length);
+        var reversed;
+        if (width % 2 === 0) {
+            reversed = input.split('').reverse().join('') + input.substring(1, input.length);
+        } else {
+            reversed = input + input.split('').reverse().join('').substring(1, input.length);
+        }
         var reversedMaxInd = reversed.length - 1;
         var inputMaxInd = input.length - 1;
 
