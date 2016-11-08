@@ -57193,23 +57193,30 @@ var RektComponent = (function () {
         this.updateRekt();
     };
     RektComponent.prototype.updateRekt = function () {
-        this.rektMatrix = [];
-        this.getRekt(this.word, this.width, this.height);
+        this.rektMatrix = this.getRekt(this.word, this.width, this.height);
     };
     RektComponent.prototype.getRekt = function (input, width, height) {
-        var reversed = input + input.split('').reverse().join('').substring(1, input.length);
-        var reversedMaxInd = reversed.length - 1;
+        var template = createTemplate(width % 2 !== 0 ? input : reverse(input));
+        var templateMaxInd = template.length - 1;
         var inputMaxInd = input.length - 1;
+        var matrix = [];
         for (var rowInd = 0; rowInd <= inputMaxInd * height; rowInd++) {
-            this.rektMatrix[rowInd] = [];
+            matrix[rowInd] = [];
             for (var colInd = 0; colInd <= inputMaxInd * width; colInd++) {
                 if (rowInd % inputMaxInd === 0 || colInd % inputMaxInd === 0) {
-                    this.rektMatrix[rowInd].push(reversed[(rowInd + colInd) % reversedMaxInd]);
+                    matrix[rowInd].push(template[(rowInd + colInd) % templateMaxInd]);
                 }
                 else {
-                    this.rektMatrix[rowInd].push('');
+                    matrix[rowInd].push('');
                 }
             }
+        }
+        return matrix;
+        function createTemplate(word) {
+            return word + reverse(word).substring(1, word.length);
+        }
+        function reverse(str) {
+            return str.split('').reverse().join('');
         }
     };
     __decorate([
